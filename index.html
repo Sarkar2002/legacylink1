@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LegacyLink</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-blue': '#1E40AF', // A deep, trustworthy blue
+              'brand-blue-light': '#2563EB',
+              'brand-gold': '#D4AF37', // A vibrant, legacy gold
+              'deep-space': '#0c1021',
+              'slate-light': '#1e293b',
+              'slate-dark': '#0f172a',
+              'glow-purple': '#a78bfa',
+              'dark-text': '#cbd5e1',
+              'dark-text-secondary': '#94a3b8',
+            },
+            animation: {
+                'space-bg': 'space-bg 50s ease-in-out infinite',
+                'fade-in': 'fade-in 0.5s ease-out forwards',
+                'fade-in-down': 'fade-in-down 0.3s ease-out forwards',
+                'subtle-zoom': 'subtle-zoom 20s ease-in-out infinite alternate',
+                'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+                'space-bg': {
+                    '0%, 100%': { backgroundPosition: '0% 50%' },
+                    '50%': { backgroundPosition: '100% 50%' },
+                },
+                'fade-in': {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
+                'fade-in-down': {
+                    '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                },
+                'subtle-zoom': {
+                    '0%': { transform: 'scale(1)' },
+                    '100%': { transform: 'scale(1.05)' },
+                },
+                'pulse-ring': {
+                    '0%': { transform: 'scale(0.9)', opacity: '0.75' },
+                    '75%, 100%': { transform: 'scale(1.5)', opacity: '0' },
+                },
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .landing-background {
+            background-image: linear-gradient(rgba(9, 10, 15, 0.6), rgba(9, 10, 15, 0.6)), url('https://storage.googleapis.com/aistudio-project-files/3371169d-1222-42cf-8173-7728b97d310e/2s2n3mB.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        #app-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+        }
+        #stars {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 
+                /* A large number of stars with random positions */
+                -23vw 2vh #FFF, 7vw 3vh #FFF, -42vw 3vh #FFF, 4vw 4vh #FFF, 3vw 5vh #FFF, 
+                -47vw 6vh #FFF, -32vw 7vh #FFF, 34vw 9vh #FFF, -13vw 10vh #FFF, 
+                -48vw 10vh #FFF, 2vw 12vh #FFF, -10vw 12vh #FFF, -12vw 13vh #FFF, 
+                23vw 15vh #FFF, -11vw 16vh #FFF, 15vw 17vh #FFF, 24vw 17vh #FFF, 
+                -41vw 18vh #FFF, -32vw 20vh #FFF, -5vw 20vh #FFF, 26vw 20vh #FFF, 
+                41vw 21vh #FFF, -35vw 22vh #FFF, 17vw 23vh #FFF, -29vw 23vh #FFF, 
+                15vw 24vh #FFF, -21vw 24vh #FFF, 28vw 27vh #FFF, -3vw 28vh #FFF, 
+                -4vw 29vh #FFF, -36vw 29vh #FFF, -46vw 30vh #FFF, 48vw 31vh #FFF, 
+                -34vw 32vh #FFF, -22vw 32vh #FFF, 43vw 33vh #FFF, -37vw 34vh #FFF, 
+                -44vw 35vh #FFF, -2vw 36vh #FFF, 32vw 36vh #FFF, -24vw 37vh #FFF, 
+                -13vw 38vh #FFF, -27vw 41vh #FFF, -25vw 42vh #FFF, -49vw 42vh #FFF, 
+                30vw 44vh #FFF, 23vw 45vh #FFF, 3vw 45vh #FFF, -44vw 45vh #FFF, 
+                -14vw 46vh #FFF, -38vw 47vh #FFF, -1vw 48vh #FFF, -31vw 49vh #FFF, 
+                -16vw 50vh #FFF, 20vw 51vh #FFF, 21vw 52vh #FFF, -45vw 52vh #FFF, 
+                -18vw 53vh #FFF, -21vw 54vh #FFF, 3vw 55vh #FFF, -3vw 56vh #FFF, 
+                -45vw 56vh #FFF, -40vw 57vh #FFF, 24vw 57vh #FFF, 26vw 59vh #FFF, 
+                -2vw 61vh #FFF, 43vw 61vh #FFF, 45vw 62vh #FFF, 14vw 63vh #FFF, 
+                -34vw 63vh #FFF, -49vw 64vh #FFF, 16vw 66vh #FFF, 14vw 67vh #FFF, 
+                -17vw 69vh #FFF, 33vw 69vh #FFF, 40vw 69vh #FFF, -3vw 70vh #FFF, 
+                -19vw 71vh #FFF, 17vw 72vh #FFF, -14vw 72vh #FFF, -47vw 72vh #FFF, 
+                3vw 74vh #FFF, 10vw 74vh #FFF, 36vw 74vh #FFF, -2vw 75vh #FFF, 
+                -43vw 76vh #FFF, -11vw 77vh #FFF, 13vw 77vh #FFF, -43vw 77vh #FFF, 
+                23vw 78vh #FFF, -40vw 78vh #FFF, 12vw 81vh #FFF, 2vw 82vh #FFF, 
+                -23vw 82vh #FFF, -29vw 82vh #FFF, 30vw 82vh #FFF, 10vw 83vh #FFF, 
+                15vw 84vh #FFF, 21vw 85vh #FFF, 3vw 86vh #FFF, 30vw 86vh #FFF, 
+                -41vw 86vh #FFF, -44vw 86vh #FFF, 3vw 87vh #FFF, -26vw 88vh #FFF, 
+                37vw 88vh #FFF, -29vw 89vh #FFF, 21vw 89vh #FFF, 44vw 90vh #FFF, 
+                -3vw 91vh #FFF, 24vw 91vh #FFF, 4vw 92vh #FFF, -28vw 92vh #FFF, 
+                -32vw 93vh #FFF, 14vw 94vh #FFF, 43vw 94vh #FFF, 22vw 95vh #FFF, 
+                32vw 96vh #FFF, 26vw 97vh #FFF, -45vw 98vh #FFF, 2vw 99vh #FFF;
+            animation: animStar 200s linear infinite;
+        }
+        @keyframes animStar {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-2000px); }
+        }
+        .focused-highlight > circle {
+            stroke: #a78bfa !important; /* glow-purple */
+            stroke-width: 4px !important;
+            filter: drop-shadow(0 0 8px #a78bfa);
+        }
+        /* Custom styles for audio player */
+        audio::-webkit-media-controls-panel {
+            background-color: #1e293b; /* slate-light */
+            border-radius: 8px;
+        }
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display,
+        audio::-webkit-media-controls-mute-button {
+            color: #cbd5e1; /* dark-text */
+            filter: brightness(1.5);
+        }
+        audio::-webkit-media-controls-timeline {
+            background-color: #475569;
+            border-radius: 25px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        audio::-webkit-media-controls-volume-slider {
+            background-color: #475569;
+            border-radius: 25px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+    <script src="https://unpkg.com/lucide-react@0.292.0/dist/lucide-react.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0",
+    "d3": "https://aistudiocdn.com/d3@^7.9.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="text-dark-text bg-deep-space">
+    <div id="app-background">
+      <div id="stars"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

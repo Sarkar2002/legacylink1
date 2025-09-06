@@ -1,0 +1,8 @@
+{
+  "name": "LegacyLink",
+  "description": "LegacyLink is a futuristic family tree and digital heritage platform designed to preserve memories, connect generations, and celebrate legacies in an interactive way. It supports deep generational trees, rich profiles, a digital vault, and collaborative features to create a living family archive.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
